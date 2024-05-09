@@ -6,27 +6,29 @@
 // L'output del prezzo finale va messo fuori in forma umana 
 // (con massimo due decimali, per indicare centesimi sul prezzo) [questo richiederà un minimo di ricerca]
 
-const kmUser = prompt('Quanti km vuoi percorrere');
-console.log(kmUser);
+// Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere
+const kmUser = Number.parseFloat(prompt('Inserisci quanti km vuoi percorrere'), 10);
 
-const ageUser = prompt('Quanti anni ha il passeggero');
-ageUser = parseInt(ageUser);
-console.log(ageUser);
+// Il programma dovrà chiedere all'utente l'età del passeggero
+const ageUser = Number.parseInt(prompt('Inserisci eta del passeggero'),10);
 
-// kmUser * 0.276 questo è il prezzo
+// Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
+// il prezzo del biglietto è definito in base ai km (0.276 € al km)
+const prezzoAlKm = 0.276;
+let sconto = 0;
 
-if (ageUser<18) {
-    let sconto = 21
+// va applicato uno sconto del 21% per i minorenni
+// va applicato uno sconto del 42% per gli over 65.
+if (ageUser > 65) {
+    sconto = 42;
+}else if (ageUser < 18) {
+    sconto = 21;
 }
 
-let scontoSulPrezzo1 = (prezzo/100) * sconto;
-let prezzoScontato1 = prezzo - scontoSulPrezzo;
-console.log(sconto, prezzoScontato)
+// costo base
+let prezzo = prezzoAlKm * kmUser; 
+prezzo = prezzo - ((prezzo/100) * sconto);
+console.log(prezzo.toFixed(2))
 
-if (ageUser>65) {
-    let sconto = 42;
-}
-
-let scontoSulPrezzo2 = (prezzo/100) * sconto;
-let prezzoScontato2 = prezzo - scontoSulPrezzo;
-console.log(sconto, prezzoScontato);
+// L'output del prezzo finale va messo fuori in forma umana 
+// (con massimo due decimali, per indicare centesimi sul prezzo)
