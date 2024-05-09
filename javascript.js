@@ -15,18 +15,18 @@ console.log(ageUser);
 
 // kmUser * 0.276 questo è il prezzo
 
-if ageUser<18 {
+if (ageUser<18) {
     let sconto = 21
 }
 
-let scontoSulPrezzo = (prezzo/100) * sconto
-let prezzoScontato = prezzo - scontoSulPrezzo
+let scontoSulPrezzo1 = (prezzo/100) * sconto;
+let prezzoScontato1 = prezzo - scontoSulPrezzo;
 console.log(sconto, prezzoScontato)
 
-if ageUser>65 {
-    let sconto = 42
+if (ageUser>65) {
+    let sconto = 42;
 }
 
-let scontoSulPrezzo = (prezzo/100) * sconto
-let prezzoScontato = prezzo - scontoSulPrezzo
-console.log(sconto, prezzoScontato)
+let scontoSulPrezzo2 = (prezzo/100) * sconto;
+let prezzoScontato2 = prezzo - scontoSulPrezzo;
+console.log(sconto, prezzoScontato);
